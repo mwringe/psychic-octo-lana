@@ -1,0 +1,8 @@
+{
+  "module-id" : "io.liveoak.mongo-launcher",
+  "config" : {
+    "enabled" : "auto",
+    "use-small-files" : true,
+    "host":"${jboss.bind.address}"
+  }
+}
