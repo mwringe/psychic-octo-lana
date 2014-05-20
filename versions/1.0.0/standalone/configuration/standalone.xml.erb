@@ -352,7 +352,7 @@
             </servlet-container>
             <handlers>
                 <reverse-proxy name="reverse-proxy" connections-per-thread="30">
-                    <host name="http://<%= ENV['OPENSHIFT_KEYCLOAK_IP'] %>:<%= ENV['OPENSHIFT_LIVEOAK_PORT'] %>" instance-id="myRoute"/>
+                    <host name="http://<%= ENV['OPENSHIFT_LIVEOAK_IP'] %>:<%= ENV['OPENSHIFT_LIVEOAK_PORT'] %>" instance-id="myRoute"/>
                 </reverse-proxy>
                 <file name="welcome-content" path="${jboss.home.dir}/welcome-content" directory-listing="true"/>
             </handlers>
