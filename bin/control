@@ -13,7 +13,6 @@ function run_hook() {
 
 function start() {
     echo "Starting DIY cartridge"
-#    run_hook start
 }
 
 function stop() {
