@@ -13,6 +13,9 @@ function stop {
 function restart {
 }
 
+function status {
+}
+
 function catchall {
 }
 
