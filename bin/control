@@ -3,11 +3,11 @@ source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 
 function start() {
-    echo "Starting DIY cartridge"
+    echo "Starting LiveOak cartridge"
 }
 
 function stop() {
-    echo "Stopping DIY cartridge"
+    echo "Stopping LiveOak cartridge"
 }
 
 function restart() {
@@ -20,7 +20,7 @@ function status() {
 }
 
 function reload() {
-    client_result "Reloading DIY cart"
+    client_result "Reloading LiveOak cart"
     restart
 }
 
