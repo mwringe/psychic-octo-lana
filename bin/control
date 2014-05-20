@@ -10,6 +10,10 @@ function start {
 function stop {
 }
 
+function status {
+  client_result "Application is running"
+}
+
 function restart {
 }
 
