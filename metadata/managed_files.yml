@@ -17,4 +17,4 @@ locked_files:
 #- env/OPENSHIFT_LIVEOAK_VERSION
 #- env/M2_HOME
 processed_templates:
-- **/*.erb
+- '**/*.erb'
