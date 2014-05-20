@@ -48,8 +48,9 @@ Cart-Data:
     Description: "Unique ID which identified the gear. This value changes between gears."
 Provides:
   - liveoak
-Requires:
-  - java-1.8.0
+#Enable this when the java-1.8.0 cartridge is official
+#Requires:
+#  - java-1.8.0
 Publishes:
   publish-http-url:
     Type: "NET_TCP:httpd-proxy-info"
