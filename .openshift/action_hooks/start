@@ -1,3 +1,3 @@
 #!/bin/bash
-nohup $OPENSHIFT_REPO_DIR/liveoak/bin/standalone.sh -b $OPENSHIFT_LIVEOAK_IP -Djboss.bind.address=$OPENSHIFT_LIVEOAK_IP -Djboss.bind.address.management=$OPENSHIFT_LIVEOAK_IP -Djboss.bind.address.unsecure=$OPENSHIFT_LIVEOAK_IP -Djboss.liveoak.port=18383 -Dkeycloak.mongo.host=$OPENSHIFT_DIY_IP -Dliveoak.url="http://$OPENSHIFT_GEAR_DNS" > $OPENSHIFT_LIVEOAK_DIR/logs/server.log 2>&1 &
-echo $! > $OPENSHIFT_REPO_DIR/liveoak/bin/.liveoak_pid
+#nohup $OPENSHIFT_REPO_DIR/liveoak/bin/standalone.sh -b $OPENSHIFT_LIVEOAK_IP -Djboss.bind.address=$OPENSHIFT_LIVEOAK_IP -Djboss.bind.address.management=$OPENSHIFT_LIVEOAK_IP -Djboss.bind.address.unsecure=$OPENSHIFT_LIVEOAK_IP -Djboss.liveoak.port=18383 -Dkeycloak.mongo.host=$OPENSHIFT_DIY_IP -Dliveoak.url="http://$OPENSHIFT_GEAR_DNS" > $OPENSHIFT_LIVEOAK_DIR/logs/server.log 2>&1 &
+#echo $! > $OPENSHIFT_REPO_DIR/liveoak/bin/.liveoak_pid
