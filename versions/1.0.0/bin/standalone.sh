@@ -5,12 +5,11 @@
 #         standalone.bat --debug 9797
 
 # LiveOak Specific Options
-LIVEOAK_OPTS="-Dlocal.maven.repo.path=m2-repo"
 
 # By default debug mode is disable.
 DEBUG_MODE=false
 DEBUG_PORT="8787"
-SERVER_OPTS="$LIVEOAK_OPTS"
+SERVER_OPTS=""
 while [ "$#" -gt 0 ]
 do
     case "$1" in
@@ -91,6 +90,10 @@ else
  fi
 fi
 export JBOSS_HOME
+
+#Setup the M2 repository location for LiveOak
+LIVEOAK_OPTS="-Dlocal.maven.repo.path=$JBOSS_HOME/m2-repo"
+SERVER_OPTS="$SERVER_OPTS $LIVEOAK_OPTS"
 
 # Read an optional running configuration file
 if [ "x$RUN_CONF" = "x" ]; then

@@ -3,6 +3,10 @@
   "config" : {
     "enabled" : "auto",
     "use-small-files" : true,
-    "host":"${jboss.bind.address}"
+    "host" : "${jboss.bind.address}",
+    "mongod-path" : "/usr/bin/mongod",
+    "log-path" : "${io.liveoak.home.dir}/data/mongod.log",
+    "pid-file-path" : "${io.liveoak.home.dir}/data/mongod.pid",
+    "db-path" : "${io.liveoak.home.dir}/data"
   }
 }
