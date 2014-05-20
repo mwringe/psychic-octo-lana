@@ -1,0 +1,1 @@
+# OpenShift HelloWorld Cartridge
