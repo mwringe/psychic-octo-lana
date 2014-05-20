@@ -16,6 +16,7 @@ function restart() {
 }
 
 function status() {
+    echo "Status"
 }
 
 function reload() {
