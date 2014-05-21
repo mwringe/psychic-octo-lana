@@ -36,7 +36,7 @@
               <label class="col-sm-3  control-label" for="dbhost">Host <span class="required">*</span></label>
 
               <div class="col-sm-4" ng-class="{'has-error': storageForm.dbhost.$error.pattern}">
-                <input class="form-control" ng-model="storageModel.servers[0].host" type="text" id="dbhost" name="dbhost" ng-pattern="reIPv4Host" required placeholder="<%= ENV['OPENSHIFT_LIVEOAK_IP'] %>">
+                <input class="form-control" ng-model="storageModel.servers[0].host" type="text" id="dbhost" name="dbhost" ng-pattern="reIPv4Host" required placeholder="e.g. <%= ENV['OPENSHIFT_LIVEOAK_IP'] %>">
                 <span class="help-block" ng-show="storageForm.dbhost.$error.pattern">Not a valid address.</span>
               </div>
             </div>
@@ -99,3 +99,4 @@
     </div>
   </div>
 </div>
+

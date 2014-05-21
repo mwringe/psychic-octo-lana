@@ -15,6 +15,9 @@ loMod.controller('AppListCtrl', function($scope, $routeParams, $location, $modal
           if (resources._members[j].hasOwnProperty('MongoClientOptions')) {
             app.mongoStorages++;
           }
+          else if(resources._members[j].hasOwnProperty('upsURL')) {
+            app.push = resources._members[j];
+          }
         }
       }
     };
@@ -31,7 +34,6 @@ loMod.controller('AppListCtrl', function($scope, $routeParams, $location, $modal
 
     app.mongoStorages = 0;
     app.storage.$promise.then(increaseStorages(app));
-    app.push = LoPush.get({appId: app.id});
 
     $scope.applications.push(app);
   }
@@ -131,7 +133,7 @@ loMod.controller('AppListCtrl', function($scope, $routeParams, $location, $modal
                 type: 'mongo',
                 config: {
                   db: $scope.appModel.id,
-		  servers: [{host: '<%= ENV['OPENSHIFT_LIVEOAK_IP'] %>', port: 27017}],
+                  servers: [{host: '<%= ENV['OPENSHIFT_LIVEOAK_IP'] %>', port: 27017}],
                   credentials: []
                 }
               };
@@ -446,7 +448,10 @@ loMod.controller('AppClientCtrl', function($scope, $rootScope, $filter, $route, 
   $scope.addRedirectUri = function() {
     $scope.settings.redirectUris.push($scope.newRedirectUri);
     if(!$scope.newWebOrigin && (/^http[s]?:\/\/[^/]*/).test($scope.newRedirectUri)) {
-      $scope.newWebOrigin = $scope.newRedirectUri.match(/^http[s]?:\/\/[^/]*/)[0];
+      var newWebOrigin = $scope.newRedirectUri.match(/^http[s]?:\/\/[^/]*/)[0];
+      if ($scope.settings.webOrigins.indexOf(newWebOrigin) === -1) {
+        $scope.newWebOrigin = newWebOrigin;
+      }
     }
     $scope.newRedirectUri = '';
   };
@@ -508,7 +513,7 @@ loMod.controller('AppClientCtrl', function($scope, $rootScope, $filter, $route, 
       }
     }
 
-    var scopeMappingsUrl = '/auth/rest/admin/realms/liveoak-apps/applications/' + $route.current.params.clientId +  '/scope-mappings/applications/' + $route.current.params.appId;
+    var scopeMappingsUrl = '/auth/admin/realms/liveoak-apps/applications/' + $route.current.params.clientId +  '/scope-mappings/applications/' + $route.current.params.appId;
 
     var scopeMappingsAdd = function() {
       if(smData.length > 0) {

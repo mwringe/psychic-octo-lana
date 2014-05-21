@@ -49,7 +49,9 @@ Cart-Data:
     Description: "Unique ID which identified the gear. This value changes between gears."
 Provides:
   - liveoak
-#Enable this when the java-1.8.0 cartridge is official
+# Providing the openjdk binary with the liveoak binary for now
+# Remove when an official openjdk binary is available on OpenShift and we can use 'Requires' to fetch it
+# Requires not supported for non-official cartridges
 #Requires:
 #  - java-1.8.0
 Publishes:
@@ -77,9 +79,6 @@ Subscribes:
 Scaling:
   Min: 1
   Max: 1
-Group-Overrides:
-- components:
-  - web-proxy
 Endpoints:
   - Private-IP-Name:     IP
     Private-Port-Name:   HTTP_PORT
