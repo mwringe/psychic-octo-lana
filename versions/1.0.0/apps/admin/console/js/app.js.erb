@@ -222,7 +222,7 @@ loMod.config(['$routeProvider', function($routeProvider) {
       controller: 'StorageCtrl',
       resolve: {
         loStorage : function() {
-          return {'type':'mongo','servers':[{}],'credentials':[{'mechanism':'MONGODB-CR'}]};
+          return {'type':'mongo','servers':[{'host':'<%= ENV['OPENSHIFT_LIVEOAK_IP'] %>', 'port':'27017'}],'credentials':[{'mechanism':'MONGODB-CR'}]};
         },
         currentApp: function(LoAppLoader){
           return new LoAppLoader();
