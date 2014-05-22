@@ -340,7 +340,7 @@
                 <buffer-cache name="default" buffer-size="1024" buffers-per-region="1024" max-regions="10"/>
             </buffer-caches>
             <server name="default-server">
-                <http-listener name="default" socket-binding="http"/>
+                <http-listener name="default" socket-binding="http" proxy-address-forwarding="true"/>
                 <host name="default-host" alias="localhost">
                     <location name="/" handler="reverse-proxy"/>
                     <filter-ref name="server-header"/>
@@ -400,7 +400,7 @@
         <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
         <socket-binding name="liveoak" interface="liveoak" port="${jboss.liveoak.port:8383}"/>
         <socket-binding name="http" port="${jboss.http.port:8080}"/>
-        <socket-binding name="https" port="${jboss.https.port:8443}"/>
+        <socket-binding name="https" port="443"/> <!-- https isn't enabled, but changing this fixes redirects to https on OpenShift -->
         <socket-binding name="txn-recovery-environment" port="4712"/>
         <socket-binding name="txn-status-manager" port="4713"/>
         <outbound-socket-binding name="mail-smtp">
