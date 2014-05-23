@@ -66,6 +66,10 @@ function tidy() {
     echo "Tidy"
 }
 
+function deploy() {
+    echo "Deploying LiveOak Apps"
+}
+
 case "$1" in
   start)     start ;;
   stop)      stop ;;
@@ -73,5 +77,6 @@ case "$1" in
   status)    status ;;
   reload)    reload ;;
   tidy)      tidy ;;
+  deploy)    deploy ;;
   *)         exit 0
 esac
