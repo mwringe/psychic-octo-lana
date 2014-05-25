@@ -2,6 +2,12 @@
     module-id:  'io.liveoak.mongo',
     dependencies: ['mongo-launcher'],
     config: {
-      db: "liveoak"
+      db: "liveoak",
+      servers: [
+          {
+            host: '${jboss.bind.address}',
+            port: 27017
+          }
+      ]
     }
 }
