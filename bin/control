@@ -48,9 +48,11 @@ function start() {
 
 function stop() {
     echo "Stopping LiveOak cartridge"
-    PID=`cat $OPENSHIFT_LIVEOAK_DIR/versions/1.0.0/bin/.liveoak_pid`
-    killtree $PID
-    rm $OPENSHIFT_LIVEOAK_DIR/versions/1.0.0/bin/.liveoak_pid
+    if [ -a $OPENSHIFT_LIVEOAK_DIR/versions/1.0.0/bin/.liveoak_pid ]; then
+        PID=`cat $OPENSHIFT_LIVEOAK_DIR/versions/1.0.0/bin/.liveoak_pid`
+        killtree $PID
+        rm $OPENSHIFT_LIVEOAK_DIR/versions/1.0.0/bin/.liveoak_pid
+    fi
 }
 
 function restart() {
